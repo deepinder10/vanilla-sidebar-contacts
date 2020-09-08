@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import "./variables.scss";
+@import "./mixins.scss";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+*{
+  font-family: 'Poppins', sans-serif;
+}
+.d-flex{
+  display: flex;
+}
+.justify-between{
+  justify-content: space-between;
+}
+.flex-column{
+  flex-direction: column;
+}
+.justify-center{
+  justify-content: center;
+}
+.align-center{
+  align-items: center;
+}
+.mt-1{
+  margin-top: 1rem;
+}
+.mb-1{
+  margin-bottom: 1rem;
+}
+.mr-1{
+  margin-right: 1rem;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  background-color: $body-background-color;
+  &__sidebar{
+    box-sizing: border-box;
+    box-shadow: 3px 3px 5px 6px #a0a0a0;
+    width: 35%;
+    height: 100%;
+    background-color: $sidebar-background-color;
+  }
+}
+.invoice{
+  height: 100%;
+  &__header{
+    @include make-padding(1rem, 1.2rem);
+    h3{
+      margin: 0;
+    }
+    border-bottom: solid 1px #e4e4e4;
+  }
+  &__body{
+    @include make-padding(1rem, 1.2rem);
+    flex-grow: 1;
+    overflow: auto;
+    &__recent-contacts{
+      border-bottom: solid 1px #e4e4e4;
+      padding-bottom: 1rem;
+    }
+    &__contacts{
+      overflow-x: auto;
+    }
+    &__contact-card{
+      width: calc(100% / 6);
+      margin-right: 0.8rem;
+    }
+    &__contact-image{
+      height: $contact-card-size;
+      width: $contact-card-size;
+      color: $contact-card-text-color;
+      border-radius: 50%;
+    }
+    &__contact-text{
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+  &__form{
+    margin-top: 2rem;
+    &__select-contact-btn{
+      border: none;
+      background: none;
+      outline: none;
+      color: $app-color;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    &__label{
+      margin-bottom: 0.4rem;
+    }
+    &__input{
+      height: $input-height;
+    }
+    &__add-email-text{
+      color: $app-color;
+      font-weight: 600;
+      font-size: small;
+    }
+  }
+  &__footer{
+    @include make-padding(1rem, 1.2rem);
+    &__cancel-text{
+      color: $app-color;
+      font-weight: 600;
+      margin: 0;
+      font-size: small;
+    }
+    &__next-btn{
+      background-color: $app-color;
+      color: #fff;
+      border: none;
+      height: $next-btn-height;
+      border-radius: 4px;
+      padding: 0 1rem;
+      cursor: pointer;
+      font-size: small;
+      &:disabled{
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.contacts{
+  height: 100%;
+  &__header{
+    @include make-padding(1rem, 1.2rem);
+    border-bottom: solid 1px #e4e4e4;
+    &__text{
+      margin: 0;
+    }
+  }
+  &__search{
+    @include make-padding(1.8rem, 1.5rem);
+    &__input{
+      width: 100%;
+    }
+  }
+  &__list{
+    flex-grow: 1;
+    min-height: 0;
+    @include make-padding(0, 1rem);
+    &__names{
+      overflow: auto;
+    }
+    &__alphabets{
+      height: fit-content;
+      font-size: 11px;
+    }
+  }
+}
