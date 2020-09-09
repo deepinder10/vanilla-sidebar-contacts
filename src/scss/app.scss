@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 @import "./variables.scss";
 @import "./mixins.scss";
 
@@ -144,8 +144,21 @@ html, body {
   }
   &__search{
     @include make-padding(1.8rem, 1.5rem);
+    &__container{
+      position: relative;
+      width: 100%;
+    }
+    &__icon{
+      position: absolute;
+      left: 6px;
+    }
     &__input{
       width: 100%;
+      background-color: $search-bg-color;
+      border: none;
+      box-sizing: border-box;
+      border-radius: 4px;
+      @include make-padding(0.5rem, 1.7rem);
     }
   }
   &__list{
@@ -154,10 +167,29 @@ html, body {
     @include make-padding(0, 1rem);
     &__names{
       overflow: auto;
+      flex-grow: 1;
+    }
+    &__name-text{
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    &__email-text{
+      margin: 0;
+      color: $contacts-email-color;
+      font-size: small;
     }
     &__alphabets{
-      height: fit-content;
+      overflow: auto;
       font-size: 11px;
+      cursor: pointer;
     }
+  }
+}
+
+@media (max-width: $breakpoint-phone) {
+  .container {
+   &__sidebar{
+     width: 100%;
+   } 
   }
 }

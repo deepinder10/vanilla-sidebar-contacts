@@ -1,3 +1,6 @@
+/**
+ * Function to generate random color
+ */
 export default function getRandomColor() {
   const letters = '0123456789ABCDEF';
   let color = '#';
